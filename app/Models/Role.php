@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+
 class Role extends Model
-{
+{use SoftDelete;
     protected $fillable = [
         'name',
         'slug',

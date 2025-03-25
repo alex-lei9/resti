@@ -16,6 +16,7 @@ Route::middleware('auth:sanctum')->group(function () {
     //Auth Routes
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/me', [AuthController::class, 'me']);
+    Route::get('/getAllRoles',[RoleController::class,'index']); 
 
     // Route::apiResource('users', UserController::class);
     Route::get('user', [UserController::class, 'index']);
@@ -35,4 +36,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('restaurant/{id}', [RestaurantController::class, 'getRestaurant']);
     Route::put('restaurant/{id}', [RestaurantController::class, 'updateRestaurant']);
     Route::delete('restaurant/{id}', [RestaurantController::class, 'deleteRestaurant']);
+
+    Route::post('restaurant', [RoleController::class, 'createRole']);
+    Route::get('restaurant', [RoleController::class, 'getRole']);
+    Route::get('restaurant/{id}', [RoleController::class, 'getRole']);
+    Route::put('restaurant/{id}', [RoleController::class, 'updateRole']);
+    Route::delete('restaurant/{id}', [RoleController::class, 'deleteRole']);
 });
